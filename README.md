@@ -22,13 +22,29 @@ RangePubTest.ino is the arduino code. Range.hpp is a header file required by ros
 # Project setup 
 Because this is a networking demo, you will need two host devices wit ROS2 installed in both. in the first device (labtop 1) you need to  
   - install [micro-XRCE-DDS](https://github.com/eProsima/Micro-XRCE-DDS) 
-  - connect your Arduino to it and flash RangePubTest.ino
+  - install [ros2arduino](https://github.com/ROBOTIS-GIT/ros2arduino)
+  - add this (Range.hpp) to your sensor_msgs directory which resides in
+  ```
+  /home/USERNAME/arduino-1.8.8/libraries/ros2arduino/src/sensor_msgs
+  ```
+  - Connect your Arduino to Labtop1 and flash RangePubTest.ino
   
-On the other host device (labtop 2) you will instll ros2 packages related to MARA robot simulation, The steps to do so are in this reposetory :
+On the other host device (labtop 2) you will install ros2 packages related to MARA robot simulation, The steps to do so are in this reposetory :
   - [mara_arduino_remote_control](https://github.com/AlaaAlassi/mara_arduino_remote_control).
-
+  
+# Run the MicroXRCEAgent
+run MicroXRCEAgent 
+ ```
+ MicroXRCEAgent serial /dev/ttyACMXXX
+ ```
+ where XXX is the serial portt number which Arduino is connected to. For example ttyACM0
  
-
+ Now you should be able to see the range message on a separate terminal if you type 
+  ```
+ ros2 topic echo /arduino_ranger sensor_msgs/Range
+ ```
+ 
+ 
 
 
 
