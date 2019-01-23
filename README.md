@@ -19,13 +19,18 @@ The diagram below shows the system architecture. The Arduino instructs the micro
 
 RangePubTest.ino is the arduino code. Range.hpp is a header file required by ros2arduino since it doesn’t include the Range message type by default. If the code does not compile for the Arduino you are using, then the default size of the data packet can be reduced from 512 bytes to a lower value by altering the relevant header file. The lowest spec board that I was able to get it working on was an Arduino MEGA 2560 which has 256kb flash, 8kb ram and a 16Mhz 8-bit processor.
 
+# Used hardware 
+  - [SRF08 Ultra sonic range finder](https://www.robot-electronics.co.uk/htm/srf08tech.html)
+  - ARDUINO MEGA 2560 
+
+
 # Project setup 
 Because this is a networking demo, you will need two host devices wit ROS2 installed in both. in the first device (labtop 1) you need to  
   - install [micro-XRCE-DDS](https://github.com/eProsima/Micro-XRCE-DDS) 
   - install [ros2arduino](https://github.com/ROBOTIS-GIT/ros2arduino)
-  - add this (Range.hpp) to your sensor_msgs directory which resides in
+  - add this (Range.hpp) to your sensor_msgs directory which resides in 
   ```
-  /home/USERNAME/arduino-1.8.8/libraries/ros2arduino/src/sensor_msgs
+  /arduino-1.8.8/libraries/ros2arduino/src/sensor_msgs
   ```
   - Connect your Arduino to Labtop1 and flash RangePubTest.ino
   
